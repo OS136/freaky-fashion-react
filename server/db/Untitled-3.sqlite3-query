@@ -1,0 +1,29 @@
+-- database: ./products.db
+
+SELECT * FROM products;
+
+
+
+  DROP TABLE IF EXISTS products;
+  
+  
+  CREATE TABLE products (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    price TEXT,
+    picture TEXT,
+    url TEXT,
+    description TEXT,
+    brand TEXT,
+    SKU TEXT UNIQUE
+  );
+
+  INSERT INTO products (name, price, picture, url, description, brand, SKU)
+VALUES  
+('Svart T-shirt', '199', 'https://placehold.co/250x400/png', 'svart-tshirt', 'lorem ipsum', 'Nike', 'AA1234'),
+('Gul T-shirt', '200', 'https://placehold.co/250x400/png', 'gul-tshirt', 'lorem ipsum', 'Adidas', 'AA1235'),
+('Vit T-shirt', '270', 'https://placehold.co/250x400/png', 'vit-tshirt', 'lorem ipsum', 'Puma', 'AA1236' ),
+('Svart T-shirt', '199', 'https://placehold.co/250x400/png', 'svart-tshirt', 'lorem ipsum', 'lacosta', 'AA1237'),
+('Gul T-shirt', '230', 'https://placehold.co/250x400/png', 'gul-tshirt', 'lorem ipsum', 'lacosta', 'AA1238'),
+('Vit T-shirt', '370', 'https://placehold.co/250x400/png', 'vit-tshirt', 'lorem ipsum', 'pierrot', 'AA1239' );
+
