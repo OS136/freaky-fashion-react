@@ -7,6 +7,7 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import DeliveryBadges from "./components/Footer/DeliveryBadge";
 import "./index.css";
 import Footer from "./components/Footer/Footer";
+import AdminProductList from "./components/Admin/AdminProductList";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             </>
           }
         />
+        <Route path="/admin/products" element={<AdminProductList />} />
       </Routes>
 
       <Footer />
