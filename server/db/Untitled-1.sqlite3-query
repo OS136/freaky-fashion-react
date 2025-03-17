@@ -1,28 +1,30 @@
--- database: ./student-manager.db
+-- database: ./products.db
 
 SELECT * FROM students;
 
-DROP TABLE students;
 
+SELECT * FROM products;
 
-CREATE TABLE students (
+DROP TABLE IF EXISTS products;
+
+CREATE TABLE products (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    firstName TEXT NOT NULL,
-    lastName TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE,
-    phone TEXT,
-    image TEXT
+    name TEXT,
+    price TEXT,
+    picture TEXT,
+    url TEXT,
+    description TEXT,
+    brand TEXT,
+    SKU TEXT UNIQUE
 );
 
-INSERT INTO students (firstName, lastName, email, phone, image)
-VALUES
-    ('Anna', 'Andersson', 'anna.andersson@example.com', '070-1234567', 'https://placehold.co/100'),
-    ('Bengt', 'Bengtsson', 'bengt.bengtsson@example.com', '070-2345678', 'https://placehold.co/100'),
-    ('Cecilia', 'Carlsson', 'cecilia.carlsson@example.com', '070-3456789', 'https://placehold.co/100'),
-    ('David', 'Davidsson', 'david.davidsson@example.com', '070-4567890', 'https://placehold.co/100'),
-    ('Eva', 'Eriksson', 'eva.eriksson@example.com', '070-5678901', 'https://placehold.co/100'),
-    ('Fredrik', 'Fredriksson', 'fredrik.fredriksson@example.com', '070-6789012', 'https://placehold.co/100'),
-    ('Greta', 'Gustafsson', 'greta.gustafsson@example.com', '070-7890123', 'https://placehold.co/100'),
-    ('Håkan', 'Håkansson', 'hakan.hakansson@example.com', '070-8901234', 'https://placehold.co/100'),
-    ('Ida', 'Isaksson', 'ida.isaksson@example.com', '070-9012345', 'https://placehold.co/100'),
-    ('Johan', 'Johansson', 'johan.johansson@example.com', '070-0123456', 'https://placehold.co/100');
+INSERT INTO products (name, price, picture, url, description, brand, SKU)
+VALUES  
+('Svart T-shirt', '199', 'https://placehold.co/250x400/png', 'svart-tshirt', 'lorem ipsum', 'Nike', 'AA1234'),
+('Gul T-shirt', '200', 'https://placehold.co/250x400/png', 'gul-tshirt', 'lorem ipsum', 'Adidas', 'AA1235'),
+('Vit T-shirt', '270', 'https://placehold.co/250x400/png', 'vit-tshirt', 'lorem ipsum', 'Puma', 'AA1236'),
+('Svart T-shirt', '199', 'https://placehold.co/250x400/png', 'svart-tshirt', 'lorem ipsum', 'lacosta', 'AA1237'),
+('Gul T-shirt', '230', 'https://placehold.co/250x400/png', 'gul-tshirt', 'lorem ipsum', 'lacosta', 'AA1238'),
+('Vit T-shirt', '370', 'https://placehold.co/250x400/png', 'vit-tshirt', 'lorem ipsum', 'pierrot', 'AA1239'),
+('Blå T-shirt', '220', 'https://placehold.co/250x400/png', 'bla-tshirt', 'lorem ipsum', 'Nike', 'AA1240'),
+('Röd T-shirt', '250', 'https://placehold.co/250x400/png', 'rod-tshirt', 'lorem ipsum', 'Adidas', 'AA1241');

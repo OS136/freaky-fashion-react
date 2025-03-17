@@ -19,13 +19,22 @@ function App() {
             <>
               <MainArticle />
               <ProductList />
+
               <DeliveryBadges />
             </>
           }
         />
         <Route path="/products" element={<ProductList />} />
-        <Route path="/products/:url" element={<ProductDetails />} />
+        <Route
+          path="/products/:url"
+          element={
+            <>
+              <ProductDetails />
+            </>
+          }
+        />
       </Routes>
+
       <Footer />
     </Router>
   );
