@@ -8,20 +8,22 @@ import DeliveryBadges from "./components/Footer/DeliveryBadge";
 import "./index.css";
 import Footer from "./components/Footer/Footer";
 import AdminProductList from "./components/Admin/AdminProductList";
+import AdminLayout from "./layouts/AdminLayout";
+import AdminHeader from "./components/Admin/AdminHeader";
 
 function App() {
   return (
     <Router>
-      <Header mainLogo="../public/images/freaky_fashion_logo.png" />
       <Routes>
         <Route
           path="/"
           element={
             <>
+              <Header mainLogo="/images/freaky_fashion_logo.png" />
               <MainArticle />
               <ProductList />
-
               <DeliveryBadges />
+              <Footer />
             </>
           }
         />
@@ -30,14 +32,24 @@ function App() {
           path="/products/:url"
           element={
             <>
+              <Header mainLogo="../public/images/freaky_fashion_logo.png" />
               <ProductDetails />
+              <DeliveryBadges />
+              <Footer />
             </>
           }
         />
-        <Route path="/admin/products" element={<AdminProductList />} />
-      </Routes>
+        <Route
+          path="/admin/products"
+          element={
+            <AdminLayout>
+              <AdminHeader />
 
-      <Footer />
+              <AdminProductList />
+            </AdminLayout>
+          }
+        />
+      </Routes>
     </Router>
   );
 }
