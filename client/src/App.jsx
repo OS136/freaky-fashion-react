@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer";
 import AdminProductList from "./components/Admin/AdminProductList";
 import AdminLayout from "./layouts/AdminLayout";
 import AdminHeader from "./components/Admin/AdminHeader";
+import NewProduct from "./components/Admin/AdminNewProduct";
 
 function App() {
   return (
@@ -44,8 +45,16 @@ function App() {
           element={
             <AdminLayout>
               <AdminHeader />
-
               <AdminProductList />
+            </AdminLayout>
+          }
+        />
+        <Route
+          path="/admin/products/new"
+          element={
+            <AdminLayout>
+              <AdminHeader />
+              <NewProduct />
             </AdminLayout>
           }
         />
