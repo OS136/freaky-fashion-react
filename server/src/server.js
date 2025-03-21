@@ -14,13 +14,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3002", // Allow only requests from this origin
+    origin: "http://localhost:3002",
   })
 );
 app.use(express.json());
-
-// TODO: Implementera web API som returnerar studerande (/api/students).
-// Informationen ska hämtas från databas, se wireframe för information.
 
 app.get("/api/products", (req, res) => {
   const products = db.prepare("SELECT * FROM products").all();
@@ -59,6 +56,43 @@ app.get("/api/products/:url", (req, res) => {
   // console.log("Product found:", product);
   res.json(product);
 });
+
+app.post("/api/products", (req, res) => {
+  const {
+    productName,
+    productPrice,
+    productPicture,
+    productUrl,
+    productDescription,
+    productBrand,
+    productSKU,
+  } = req.body;
+
+  console.log("Received data:", req.body); // Debugging
+
+  const insert = db.prepare(
+    `INSERT INTO products (name, price, picture, url, description, brand, SKU) 
+     VALUES (?, ?, ?, ?, ?, ?, ?)`
+  );
+
+  try {
+    insert.run(
+      productName,
+      productPrice,
+      productPicture,
+      productUrl, 
+      productDescription,
+      productBrand,
+      productSKU
+    );
+
+    res.status(201).json({ message: "Product added successfully!" });
+  } catch (error) {
+    console.error("Database Error:", error);
+    res.status(500).json({ error: "Failed to add product" });
+  }
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
