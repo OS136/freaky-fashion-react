@@ -1,7 +1,11 @@
 import { useState } from "react";
 import AdminSidebar from "./AdminSidebar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
+
 const NewProducts = () => {
+  const navigate = useNavigate(); // Initialize navigate
+
   // State to store form data
   const [formData, setFormData] = useState({
     productName: "",
@@ -9,6 +13,8 @@ const NewProducts = () => {
     productPicture: "https://placehold.co/250x400/png", // Default image URL
     productSKU: "",
     productPrice: "",
+    productUrl: "",
+    productBrand: "",
     categories: {
       tShirt: false,
       summer: false,
@@ -30,16 +36,21 @@ const NewProducts = () => {
     }
   };
 
-  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent page reload
     try {
+      // Ensure productPrice is not empty or undefined before submission
+      if (!formData.productPrice) {
+        alert("Please provide a product price.");
+        return;
+      }
+
       const response = await axios.post(
         "http://localhost:8000/api/products",
         formData
       );
 
-      if (!response.ok) throw new Error("Failed to add product");
+      if (response.status !== 201) throw new Error("Failed to add product");
 
       alert("Product added successfully!");
 
@@ -52,6 +63,8 @@ const NewProducts = () => {
         productPicture: "https://placehold.co/250x400/png",
         productSKU: "",
         productPrice: "",
+        productUrl: "",
+        productBrand: "",
         categories: {
           tShirt: false,
           summer: false,
@@ -59,6 +72,9 @@ const NewProducts = () => {
           shoes: false,
         },
       });
+
+      // Redirect to the admin product list page after successful submission
+      navigate("/admin/products"); // Correct path as per your routing in App.js
     } catch (error) {
       console.error(error);
       alert("Error adding product");
@@ -102,8 +118,8 @@ const NewProducts = () => {
             <label className="block">Bild URL</label>
             <input
               type="text"
-              name="productPicture"
-              value={formData.productPicture}
+              name="productUrl"
+              value={formData.productUrl}
               onChange={handleChange}
               className="w-full border p-2 rounded"
               required
