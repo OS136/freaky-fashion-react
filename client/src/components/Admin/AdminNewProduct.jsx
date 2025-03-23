@@ -44,6 +44,10 @@ const NewProducts = () => {
         alert("Please provide a product price.");
         return;
       }
+      formData.productUrl = formData.productName
+        .toLowerCase()
+        .replace(/ /g, "-")
+        .replace(/[^\w-]+/g, "");
 
       const response = await axios.post(
         "http://localhost:8000/api/products",
@@ -51,7 +55,6 @@ const NewProducts = () => {
       );
 
       if (response.status !== 201) throw new Error("Failed to add product");
-
       alert("Product added successfully!");
 
       console.log("Product added successfully!");
@@ -115,8 +118,10 @@ const NewProducts = () => {
 
           {/* Image URL */}
           <div>
-            <label className="block">Bild URL</label>
+            <label className="block">Bild</label>
             <input
+              placeholder="https://placehold.co/250x400/png"
+              disabled
               type="text"
               name="productUrl"
               value={formData.productUrl}
