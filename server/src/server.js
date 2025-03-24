@@ -24,6 +24,15 @@ app.get("/api/products", (req, res) => {
   res.json(products);
 });
 
+app.get("/api/search", (req, res) => {
+  const query = req.query.q;
+  const searchQuery = `%${query}%`;
+  const results = db
+    .prepare("SELECT * FROM products WHERE name LIKE ? OR description LIKE ?")
+    .all(searchQuery, searchQuery);
+  res.json(results);
+});
+
 app.get("/api/products/similiar", (req, res) => {
   const excludeUrl = req.query.exclude;
   const includeBrand = req.query.includeBrand;
@@ -80,7 +89,7 @@ app.post("/api/products", (req, res) => {
       productName,
       productPrice,
       productPicture,
-      productUrl, 
+      productUrl,
       productDescription,
       productBrand,
       productSKU
@@ -92,7 +101,6 @@ app.post("/api/products", (req, res) => {
     res.status(500).json({ error: "Failed to add product" });
   }
 });
-
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);

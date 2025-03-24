@@ -5,10 +5,18 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import {} from "@fortawesome/free-regular-svg-icons";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import { useEffect, useState } from "react";
 // import React from "react";
 // eslint-disable-next-line react/prop-types
 const Header = ({ mainLogo }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/products/${searchTerm}`);
+  };
   return (
     <header className="p-4 bg-white shadow z-50 flex justify-between items-center">
       <div className="container">
@@ -21,14 +29,20 @@ const Header = ({ mainLogo }) => {
             />
           </div>
           <div className="flex w-full ml-[20px] items-center">
-            <div className="flex flex-2/3 mr-5 items-center w-full max-w-2xl searchbar border border-black rounded-3xl p-2">
+            <form
+              onSubmit={handleSearch}
+              className="flex flex-2/3 mr-5 items-center w-full max-w-2xl searchbar border border-black rounded-3xl p-2"
+            >
               <FontAwesomeIcon icon={faMagnifyingGlass} />
               <input
                 type="text"
                 name="klädersektionerna"
                 placeholder="Sök produkt"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="ml-2 w-full outline-none"
               />
-            </div>
+            </form>
 
             <ul className="flex items-center space-x-4 ">
               <li>
