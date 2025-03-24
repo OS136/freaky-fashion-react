@@ -28,8 +28,8 @@ app.get("/api/search", (req, res) => {
   const query = req.query.q;
   const searchQuery = `%${query}%`;
   const results = db
-    .prepare("SELECT * FROM products WHERE name LIKE ? OR description LIKE ?")
-    .all(searchQuery, searchQuery);
+    .prepare("SELECT * FROM products WHERE name LIKE ? OR brand LIKE ?")
+    .all([searchQuery, searchQuery]);
   res.json(results);
 });
 

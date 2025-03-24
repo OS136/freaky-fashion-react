@@ -15,7 +15,7 @@ const Header = ({ mainLogo }) => {
   const navigate = useNavigate();
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate(`/products/${searchTerm}`);
+    navigate(`/search?q=${searchTerm}`);
   };
   return (
     <header className="p-4 bg-white shadow z-50 flex justify-between items-center">

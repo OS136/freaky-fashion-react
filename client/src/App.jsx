@@ -41,7 +41,17 @@ function App() {
             </>
           }
         />
-        <Route path="/search" element={<SearchResults />} />
+        <Route
+          path="/search/"
+          element={
+            <>
+              <Header mainLogo="/images/freaky_fashion_logo.png" />
+              <SearchResults />
+              <DeliveryBadges />
+              <Footer />
+            </>
+          }
+        />
         <Route
           path="/admin/products"
           element={
