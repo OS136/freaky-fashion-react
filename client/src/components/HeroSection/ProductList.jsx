@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Product from "../Product/Product";
-
+import ProductsWrapper from "../ProductsWrapper/ProductsWrapper";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -21,8 +21,15 @@ const ProductList = () => {
   }, []);
 
   return (
-    <Product products={products} />
-    
+    <ProductsWrapper>
+      {products.length > 0 ? (
+        products.map((product) => (
+          <Product key={product.id} product={product} />
+        ))
+      ) : (
+        <p className="text-gray-500">No products available.</p>
+      )}
+    </ProductsWrapper>
   );
 };
 

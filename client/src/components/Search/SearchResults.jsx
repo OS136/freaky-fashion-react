@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Product from "../Product/Product";
+import ProductsWrapper from "../ProductsWrapper/ProductsWrapper";
 
 const SearchResults = () => {
   const location = useLocation();
@@ -24,7 +25,12 @@ const SearchResults = () => {
       <h2 className="text-2xl  font-semibold mb-4">
         Hittade {products.length} produkter
       </h2>
-      <Product products={products} />
+      <ProductsWrapper>
+        {products.length > 0 &&
+          products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))}
+      </ProductsWrapper>
     </div>
   );
 };

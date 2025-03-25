@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {} from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { useEffect, useState } from "react";
 // import React from "react";
 // eslint-disable-next-line react/prop-types
@@ -21,13 +21,13 @@ const Header = ({ mainLogo }) => {
     <header className="p-4 bg-white shadow z-50 flex justify-between items-center">
       <div className="container">
         <div className="flex flex-col justify-between lg:flex-row  md:flex-row">
-          <div className=" h-[200px] mb-[4%] ">
+          <Link to="/" className=" h-[200px] mb-[4%] ">
             <img
               alt="Logo"
               className="h-full w-full min-w-[300px] md:w-auto md:min-w-xs object-cover "
               src={mainLogo}
             />
-          </div>
+          </Link>
           <div className="flex w-full ml-[20px] items-center">
             <form
               onSubmit={handleSearch}
