@@ -83,100 +83,114 @@ const NewProducts = () => {
 
   return (
     <div className="flex">
-      <div className="flex-1 p-6">
+      <div className="flex flex-row">
         <AdminSidebar />
+        <div className="flex-1 p-9">
+          <h1 className="text-2xl font-bold mb-4">Ny Produkt</h1>
+          <form onSubmit={handleSubmit} className="space-y-4 max-w-2xl">
+            {/* Product Name */}
+            <div className="w-3/4">
+              <label className="block">Namn</label>
+              <input
+                type="text"
+                name="productName"
+                value={formData.productName}
+                onChange={handleChange}
+                className="w-full border p-2 rounded "
+                required
+              />
+            </div>
 
-        <h1 className="text-2xl font-bold mb-4">Ny Produkt</h1>
-        <form onSubmit={handleSubmit} className="space-y-4 max-w-lg">
-          {/* Product Name */}
-          <div>
-            <label className="block">Namn</label>
-            <input
-              type="text"
-              name="productName"
-              value={formData.productName}
-              onChange={handleChange}
-              className="w-full border p-2 rounded"
-              required
-            />
-          </div>
+            {/* Description */}
+            <div className="">
+              <label className="block">Beskrivning</label>
+              <textarea
+                name="productDescription"
+                rows="6"
+                value={formData.productDescription}
+                onChange={handleChange}
+                className="w-full border p-2 rounded sm:min-w-[400px] md:min-w-[500px] lg:min-w-[600px]"
+              ></textarea>
+            </div>
 
-          {/* Description */}
-          <div>
-            <label className="block">Beskrivning</label>
-            <textarea
-              name="productDescription"
-              rows="4"
-              value={formData.productDescription}
-              onChange={handleChange}
-              className="w-full border p-2 rounded"
-            ></textarea>
-          </div>
+            {/* Image URL */}
+            <div>
+              <label className="block">Bild URL</label>
+              <input
+                type="text"
+                name="productUrl"
+                value={formData.productUrl}
+                onChange={handleChange}
+                className="w-full border p-2 rounded"
+                required
+              />
+            </div>
 
-          {/* Image URL */}
-          <div>
-            <label className="block">Bild URL</label>
-            <input
-              type="text"
-              name="productUrl"
-              value={formData.productUrl}
-              onChange={handleChange}
-              className="w-full border p-2 rounded"
-              required
-            />
-          </div>
+            {/* Brand */}
+            <div>
+              <label className="block">Märke</label>
+              <input
+                type="text"
+                name="productBrand"
+                value={formData.productBrand}
+                onChange={handleChange}
+                className="w-full border p-2 rounded"
+                required
+              />
+            </div>
 
-          {/* SKU */}
-          <div>
-            <label className="block">SKU</label>
-            <input
-              type="text"
-              name="productSKU"
-              value={formData.productSKU}
-              onChange={handleChange}
-              className="w-full border p-2 rounded"
-              required
-            />
-          </div>
+            {/* SKU */}
+            <div className="w-1/2">
+              <label className="block">SKU</label>
+              <input
+                type="text"
+                name="productSKU"
+                value={formData.productSKU}
+                onChange={handleChange}
+                className="w-full border p-2 rounded"
+                required
+              />
+            </div>
 
-          {/* Price */}
-          <div>
-            <label className="block">Pris</label>
-            <input
-              type="number"
-              name="productPrice"
-              value={formData.productPrice}
-              onChange={handleChange}
-              className="w-full border p-2 rounded"
-              required
-            />
-          </div>
+            {/* Price */}
+            <div className="w-1/2">
+              <label className="block">Pris</label>
+              <input
+                type="number"
+                name="productPrice"
+                value={formData.productPrice}
+                onChange={handleChange}
+                className="w-full border p-2 rounded"
+                required
+              />
+            </div>
 
-          {/* Categories */}
-          <div>
-            <h4 className="font-semibold">Kategorier</h4>
-            {Object.keys(formData.categories).map((category) => (
-              <label key={category} className="block">
-                <input
-                  type="checkbox"
-                  name={category}
-                  checked={formData.categories[category]}
-                  onChange={handleChange}
-                  className="mr-2"
-                />
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </label>
-            ))}
-          </div>
+            {/* Categories */}
+            <div>
+              <h4 className="font-semibold">Kategorier</h4>
+              {Object.keys(formData.categories).map((category) => (
+                <label key={category} className="block">
+                  <input
+                    type="checkbox"
+                    name={category}
+                    checked={formData.categories[category]}
+                    onChange={handleChange}
+                    className="mr-2"
+                  />
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </label>
+              ))}
+            </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-          >
-            Lägg Till
-          </button>
-        </form>
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+            >
+              Lägg Till
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
