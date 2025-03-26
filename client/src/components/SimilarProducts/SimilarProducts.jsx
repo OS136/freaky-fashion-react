@@ -24,7 +24,7 @@ const SimilarProducts = (prop) => {
 
   return (
     <div className="similar-products p-4">
-      <h2 className="text-2xl font-bold mb-4">Similar Products</h2>
+      <h2 className="text-2xl text-center font-bold mb-4">Similar Products</h2>
       {products.length === 0 ? (
         <p className="text-center text-gray-500">No similar products...</p>
       ) : (
