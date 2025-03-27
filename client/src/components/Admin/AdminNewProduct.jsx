@@ -120,24 +120,9 @@ const NewProducts = () => {
             <div>
               <label className="block">Bild URL</label>
               <input
-                placeholder="https://placehold.co/250x400/png"
-                disabled
                 type="text"
                 name="productUrl"
                 value={formData.productUrl}
-                onChange={handleChange}
-                className="w-full border p-2 rounded"
-                required
-              />
-            </div>
-
-            {/* Brand */}
-            <div>
-              <label className="block">Märke</label>
-              <input
-                type="text"
-                name="productBrand"
-                value={formData.productBrand}
                 onChange={handleChange}
                 className="w-full border p-2 rounded"
                 required
