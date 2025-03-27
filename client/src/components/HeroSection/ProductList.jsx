@@ -1,9 +1,8 @@
-// export default ProductList;
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Product from "../Product/Product";
 import ProductsWrapper from "../ProductsWrapper/ProductsWrapper";
-
+import "./product-list.css";
 const ProductList = () => {
   const [products, setProducts] = useState([]);
 

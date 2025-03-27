@@ -9,18 +9,27 @@ const Product = ({ product }) => {
       <div className="flex flex-col items-center relative">
         {/* Product Image */}
 
-        <Link to={`/products/${product.url}`} className="w-full h-full ">
+        <Link
+          to={`/products/${product.url}`}
+          className="relative w-full h-full"
+        >
           <img
             src={product.picture || "/default-product.jpg"}
             alt={product.name || "Product Image"}
             className="w-full h-full object-cover rounded-md"
           />
+          {/* Like Button */}
+          <span className="like-button z-10">
+            <FontAwesomeIcon
+              icon={faHeart}
+              onClick={(event) => {
+                event.preventDefault();
+                // Toggle favourite statuss
+              }}
+              className="text-black text-3xl"
+            />
+          </span>
         </Link>
-
-        {/* Like Button */}
-        <button className="absolute bottom-18  right-2 p-2">
-          <FontAwesomeIcon icon={faHeart} className="text-black text-3xl" />
-        </button>
 
         {/* Product Info */}
         <div className="mt-4 flex flex-col w-full">

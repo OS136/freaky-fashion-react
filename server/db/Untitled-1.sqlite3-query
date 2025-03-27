@@ -12,7 +12,7 @@ CREATE TABLE products (
     name TEXT,
     price TEXT,
     picture TEXT,
-    url TEXT,
+    url TEXT UNIQUE,
     description TEXT,
     brand TEXT,
     SKU TEXT UNIQUE
@@ -23,8 +23,8 @@ VALUES
 ('Svart T-shirt', '199', 'https://placehold.co/250x400/png', 'svart-tshirt', 'lorem ipsum', 'Nike', 'AA1234'),
 ('Gul T-shirt', '200', 'https://placehold.co/250x400/png', 'gul-tshirt', 'lorem ipsum', 'Adidas', 'AA1235'),
 ('Vit T-shirt', '270', 'https://placehold.co/250x400/png', 'vit-tshirt', 'lorem ipsum', 'Puma', 'AA1236'),
-('Svart T-shirt', '199', 'https://placehold.co/250x400/png', 'svart-tshirt', 'lorem ipsum', 'lacosta', 'AA1237'),
-('Gul T-shirt', '230', 'https://placehold.co/250x400/png', 'gul-tshirt', 'lorem ipsum', 'lacosta', 'AA1238'),
-('Vit T-shirt', '370', 'https://placehold.co/250x400/png', 'vit-tshirt', 'lorem ipsum', 'pierrot', 'AA1239'),
+('Svart T-shirt', '199', 'https://placehold.co/250x400/png', 'rosa-tshirt', 'lorem ipsum', 'lacosta', 'AA1237'),
+('Gul T-shirt', '230', 'https://placehold.co/250x400/png', 'grön-tshirt', 'lorem ipsum', 'lacosta', 'AA1238'),
+('Vit T-shirt', '370', 'https://placehold.co/250x400/png', 'metal-tshirt', 'lorem ipsum', 'pierrot', 'AA1239'),
 ('Blå T-shirt', '220', 'https://placehold.co/250x400/png', 'bla-tshirt', 'lorem ipsum', 'Nike', 'AA1240'),
 ('Röd T-shirt', '250', 'https://placehold.co/250x400/png', 'rod-tshirt', 'lorem ipsum', 'Adidas', 'AA1241');
