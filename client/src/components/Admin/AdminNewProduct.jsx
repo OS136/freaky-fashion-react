@@ -118,11 +118,24 @@ const NewProducts = () => {
 
             {/* Image URL */}
             <div>
-              <label className="block">Bild URL</label>
+              <label className="block">Bild</label>
               <input
                 type="text"
                 name="productUrl"
                 value={formData.productUrl}
+                onChange={handleChange}
+                className="w-full border p-2 rounded"
+                required
+              />
+            </div>
+
+            {/* Brand */}
+            <div>
+              <label className="block">Märke</label>
+              <input
+                type="text"
+                name="productBrand"
+                value={formData.productBrand}
                 onChange={handleChange}
                 className="w-full border p-2 rounded"
                 required
