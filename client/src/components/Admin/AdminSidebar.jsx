@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom";
 const AdminSidebar = () => {
   return (
-    <div className="bg-gray-300 w-full md:w-1/4 p-4 rounded-lg shadow-md">
+    <div className="bg-gray-300 w-full p-4 max-w-[10rem] min-w-[7rem] ">
       <ul className="space-y-2">
         <li>
-          <span to="#" className="text-black text-lg hover:underline">
+          <Link to="/" className="text-black text-lg cursor-pointer">
             Produkter
-          </span>
+          </Link>
         </li>
       </ul>
     </div>

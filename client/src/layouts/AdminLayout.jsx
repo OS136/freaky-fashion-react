@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./admin.css";
 const AdminLayout = ({ children }) => {
   return <div>{children}</div>;
 };
