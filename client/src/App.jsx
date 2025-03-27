@@ -11,6 +11,7 @@ import AdminProductList from "./components/Admin/AdminProductList";
 import AdminLayout from "./layouts/AdminLayout";
 import AdminHeader from "./components/Admin/AdminHeader";
 import NewProduct from "./components/Admin/AdminNewProduct";
+import SearchResults from "./components/Search/SearchResults";
 
 function App() {
   return (
@@ -33,8 +34,19 @@ function App() {
           path="/products/:url"
           element={
             <>
-              <Header mainLogo="../public/images/freaky_fashion_logo.png" />
+              <Header mainLogo="/images/freaky_fashion_logo.png" />
               <ProductDetails />
+              <DeliveryBadges />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/search/"
+          element={
+            <>
+              <Header mainLogo="/images/freaky_fashion_logo.png" />
+              <SearchResults />
               <DeliveryBadges />
               <Footer />
             </>

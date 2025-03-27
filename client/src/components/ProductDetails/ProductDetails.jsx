@@ -27,6 +27,12 @@ const ProductDetails = () => {
         <p className="text-gray-600 text-lg">{product.price} SEK</p>
         <p className="text-sm text-gray-500">{product.brand}</p>
         <p className="mt-4">{product.description}</p>
+        <button
+          type="button"
+          className="mt-4 bg-gray-900 hover:bg-blue-900 text-white px-4 py-2 rounded-md"
+        >
+          Lägg i varukorg
+        </button>
       </div>
       <SimilarProducts url={url} brand={product.brand} />
     </>
