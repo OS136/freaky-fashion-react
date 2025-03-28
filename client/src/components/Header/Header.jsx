@@ -35,6 +35,7 @@ const Header = ({ mainLogo }) => {
             >
               <FontAwesomeIcon icon={faMagnifyingGlass} />
               <input
+                autoFocus
                 type="text"
                 name="klädersektionerna"
                 placeholder="Sök produkt"
