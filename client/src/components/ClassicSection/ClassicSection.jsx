@@ -15,10 +15,10 @@ const images = [
 
 export default function ClassicSection() {
   return (
-    <div className="hidden lg:flex gap-[4%] my-[2%]">
+    <div className="hidden lg:flex gap-[4%]  my-[2%]">
       {images.map((image, index) => (
-        <a key={index} className="w-[250px] flex-1 basis-[29%]">
-          <div className="relative PicContainer text-center bg-gray-100 p-4 rounded-lg shadow-lg">
+        <a key={index} className="w-[250px] flex-1 p-4 basis-[29%]">
+          <div className="relative text-center  rounded-lg shadow-lg">
             <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-[26px] font-bold text-brown w-full">
               Lorem ipsum dolor
             </h2>
