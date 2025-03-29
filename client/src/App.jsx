@@ -12,6 +12,7 @@ import AdminLayout from "./layouts/AdminLayout";
 import AdminHeader from "./components/Admin/AdminHeader";
 import NewProduct from "./components/Admin/AdminNewProduct";
 import SearchResults from "./components/Search/SearchResults";
+import ClassicSection from "./components/ClassicSection/ClassicSection";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <>
               <Header mainLogo="/images/freaky_fashion_logo.png" />
               <MainArticle />
+              <ClassicSection />
               <ProductList />
               <DeliveryBadges />
               <Footer />
