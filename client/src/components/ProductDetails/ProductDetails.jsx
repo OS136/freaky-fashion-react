@@ -20,9 +20,9 @@ const ProductDetails = () => {
       <div className="flex p-4 flex-col flex-wrapp-6 max-w-3xl sm:flex-row">
         <div>
           <img
-            src={product.picture || "/default-product.jpg"}
+            src={product.picture || "/images/placeholder.png"}
             alt={product.name}
-            className="sm:w-full rounded-md "
+            className="w-full h-90 object-cover rounded-md "
           />
         </div>
         <div className="flex flex-col justify-top items-start sm:p-4">
@@ -36,7 +36,7 @@ const ProductDetails = () => {
           <div className="flex flex-col justify-center items-start sm:p-4">
             <button
               type="button"
-              className="bg-gray-900 hover:bg-blue-900 text-white  px-4 py-2 rounded-md"
+              className="bg-gray-900 hover:bg-blue-900 text-white sm:mt-4 px-4 py-2 rounded-md"
             >
               Lägg i varukorg
             </button>

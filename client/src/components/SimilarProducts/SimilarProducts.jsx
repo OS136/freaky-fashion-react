@@ -23,16 +23,16 @@ const SimilarProducts = (prop) => {
   }, [url, brand]); // Run the effect when the 'url' changes
 
   return (
-    <div className="similar-products p-4">
+    <div className="p-4">
       <h2 className="text-2xl text-center font-bold mb-4">Similar Products</h2>
       {products.length === 0 ? (
         <p className="text-center text-gray-500">No similar products...</p>
       ) : (
-        <div className="product-cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {products.slice(0, 3).map((product) => (
             <div
               key={product.id}
-              className="product-card  rounded-lg overflow-hidden shadow-lg"
+              className="rounded-lg overflow-hidden shadow-lg"
             >
               <a href={`/products/${product.url}`}>
                 <img
