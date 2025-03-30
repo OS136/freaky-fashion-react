@@ -6,21 +6,21 @@ const SimilarProducts = (prop) => {
   const { url, brand } = prop;
 
   useEffect(() => {
-    if (!url) return; // If there's no URL, do nothing (early return)
+    if (!url) return; 
 
     console.log("Fetching similar products for URL:", url);
     console.log("Fetching similar products for brand:", brand);
 
     axios
-      .get(`/api/products/similiar?exclude=${url}&includeBrand=${brand}`) // Fetch similar products
+      .get(`/api/products/similiar?exclude=${url}&includeBrand=${brand}`) 
       .then((response) => {
-        console.log("Similar products fetched:", response.data); // Log the response
-        setProducts(response.data); // Set the products in state
+        console.log("Similar products fetched:", response.data); 
+        setProducts(response.data); 
       })
       .catch((error) => {
-        console.error("Error fetching similar products:", error); // Log any errors
+        console.error("Error fetching similar products:", error); 
       });
-  }, [url, brand]); // Run the effect when the 'url' changes
+  }, [url, brand]); 
 
   return (
     <div className="p-4">

@@ -4,7 +4,7 @@ import axios from "axios";
 import SimilarProducts from "../SimilarProducts/SimilarProducts";
 
 const ProductDetails = () => {
-  const { url } = useParams(); // Get product ID from URL
+  const { url } = useParams(); 
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
