@@ -14,7 +14,7 @@ const AdminPage = () => {
     setError("");
 
     try {
-      const response = await axios.get("/api/products"); // Adjust API URL if needed
+      const response = await axios.get("/api/products");
       setProducts(response.data);
     } catch (err) {
       console.error("Error fetching products:", err);
