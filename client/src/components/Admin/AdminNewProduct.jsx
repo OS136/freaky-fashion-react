@@ -1,16 +1,14 @@
 import { useState } from "react";
 import AdminSidebar from "./AdminSidebar";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
-
+import { useNavigate } from "react-router-dom";
 const NewProducts = () => {
-  const navigate = useNavigate(); // Initialize navigate
-
+  const navigate = useNavigate();
   // State to store form data
   const [formData, setFormData] = useState({
     productName: "",
     productDescription: "",
-    productPicture: "https://placehold.co/250x400/png", // Default image URL
+    productPicture: "https://placehold.co/250x400/png",
     productSKU: "",
     productPrice: "",
     productUrl: "",
@@ -37,7 +35,7 @@ const NewProducts = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault();
     try {
       // Ensure productPrice is not empty or undefined before submission
       if (!formData.productPrice) {
