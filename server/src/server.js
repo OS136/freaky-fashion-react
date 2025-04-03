@@ -47,14 +47,14 @@ app.get("/api/products/similiar", (req, res) => {
     )
     .all(excludeUrl, includeBrand);
 
-  console.log("Similar products found:", similarProducts); // Debug log
+  console.log("Similar products found:", similarProducts);
 
   res.json(similarProducts);
 });
 
 app.get("/api/products/:url", (req, res) => {
   const url = req.params.url;
-  // console.log("Requested product URLfgdfgdf:", url); // Debugging log
+
   const product = db.prepare("SELECT * FROM products WHERE url = ?").get(url);
 
   if (!product) {
@@ -62,7 +62,6 @@ app.get("/api/products/:url", (req, res) => {
     return res.status(404).json({ error: "Product not found" });
   }
 
-  // console.log("Product found:", product);
   res.json(product);
 });
 
@@ -76,8 +75,6 @@ app.post("/api/products", (req, res) => {
     productBrand,
     productSKU,
   } = req.body;
-
-  console.log("Received data:", req.body); // Debugging
 
   const insert = db.prepare(
     `INSERT INTO products (name, price, picture, url, description, brand, SKU) 

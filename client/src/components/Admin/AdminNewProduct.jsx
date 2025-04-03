@@ -53,9 +53,8 @@ const NewProducts = () => {
       );
 
       if (response.status !== 201) throw new Error("Failed to add product");
+      
       alert("Product added successfully!");
-
-      console.log("Product added successfully!");
 
       // Reset form after successful submission
       setFormData({
@@ -75,7 +74,7 @@ const NewProducts = () => {
       });
 
       // Redirect to the admin product list page after successful submission
-      navigate("/admin/products"); // Correct path as per your routing in App.js
+      navigate("/admin/products"); 
     } catch (error) {
       console.error(error);
       alert("Error adding product");
