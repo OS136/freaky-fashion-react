@@ -4,11 +4,19 @@ import axios from "axios";
 import SimilarProducts from "../SimilarProducts/SimilarProducts";
 
 const ProductDetails = () => {
-  const { url } = useParams(); 
+  const { url } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    fetchProductByUrl(url, setProduct);
+    axios
+      .get(`/api/products/${url}`)
+      .then((response) => {
+        setProduct(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching product details:", error);
+        setProduct(null);
+      });
   }, [url]);
 
   if (!product) {
@@ -48,13 +56,4 @@ const ProductDetails = () => {
   );
 };
 
-const fetchProductByUrl = async (url, setProduct) => {
-  try {
-    const response = await axios.get(`/api/products/${url}`);
-    setProduct(response.data);
-  } catch (error) {
-    console.error("Error fetching product details:", error);
-    return null;
-  }
-};
 export default ProductDetails;
