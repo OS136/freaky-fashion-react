@@ -15,7 +15,7 @@ const SimilarProducts = (prop) => {
       .get(`/api/products/similiar?exclude=${url}&includeBrand=${brand}`) 
       .then((response) => {
         console.log("Similar products fetched:", response.data); 
-        setProducts(response.data); 
+        setProducts(Array.isArray(response.data) ? response.data : []); 
       })
       .catch((error) => {
         console.error("Error fetching similar products:", error); 

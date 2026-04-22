@@ -15,6 +15,7 @@ const AdminPage = () => {
 
     try {
       const response = await axios.get("/api/products");
+      if (!Array.isArray(response.data)) throw new Error("Invalid response");
       setProducts(response.data);
     } catch (err) {
       console.error("Error fetching products:", err);
