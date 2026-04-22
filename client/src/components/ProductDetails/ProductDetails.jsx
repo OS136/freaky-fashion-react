@@ -2,20 +2,32 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import SimilarProducts from "../SimilarProducts/SimilarProducts";
+import { getMockProductByUrl } from "../../utils/mockProducts";
+
+const useMockData = import.meta.env.VITE_USE_MOCK_DATA === "true";
 
 const ProductDetails = () => {
   const { url } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
+    if (useMockData) {
+      setProduct(getMockProductByUrl(url));
+      return;
+    }
+
     axios
       .get(`/api/products/${url}`)
       .then((response) => {
-        setProduct(response.data);
+        setProduct(
+          response.data && typeof response.data === "object"
+            ? response.data
+            : null,
+        );
       })
       .catch((error) => {
         console.error("Error fetching product details:", error);
-        setProduct(null);
+        setProduct(getMockProductByUrl(url));
       });
   }, [url]);
 

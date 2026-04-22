@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { getMockSimilarProducts } from "../../utils/mockProducts";
+
+const useMockData = import.meta.env.VITE_USE_MOCK_DATA === "true";
 
 const SimilarProducts = (prop) => {
   const [products, setProducts] = useState([]);
@@ -7,6 +10,11 @@ const SimilarProducts = (prop) => {
 
   useEffect(() => {
     if (!url) return;
+
+    if (useMockData) {
+      setProducts(getMockSimilarProducts(url, brand));
+      return;
+    }
 
     console.log("Fetching similar products for URL:", url);
     console.log("Fetching similar products for brand:", brand);
@@ -19,6 +27,7 @@ const SimilarProducts = (prop) => {
       })
       .catch((error) => {
         console.error("Error fetching similar products:", error);
+        setProducts(getMockSimilarProducts(url, brand));
       });
   }, [url, brand]);
 

@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import AdminSidebar from "./AdminSidebar";
+import { mockProducts } from "../../utils/mockProducts";
+
+const useMockData = import.meta.env.VITE_USE_MOCK_DATA === "true";
 
 const AdminPage = () => {
   const [products, setProducts] = useState([]);
@@ -13,13 +16,20 @@ const AdminPage = () => {
     setLoading(true);
     setError("");
 
+    if (useMockData) {
+      setProducts(mockProducts);
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await axios.get("/api/products");
       if (!Array.isArray(response.data)) throw new Error("Invalid response");
       setProducts(response.data);
     } catch (err) {
       console.error("Error fetching products:", err);
-      setError("Kunde inte ladda produkter.");
+      setProducts(mockProducts);
+      setError("Kunde inte ladda produkter, visar testdata.");
     } finally {
       setLoading(false);
     }

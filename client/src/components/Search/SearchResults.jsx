@@ -3,6 +3,9 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Product from "../Product/Product";
 import ProductsWrapper from "../ProductsWrapper/ProductsWrapper";
+import { getMockSearchResults } from "../../utils/mockProducts";
+
+const useMockData = import.meta.env.VITE_USE_MOCK_DATA === "true";
 
 const SearchResults = () => {
   const location = useLocation();
@@ -10,6 +13,11 @@ const SearchResults = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    if (useMockData) {
+      setProducts(getMockSearchResults(query));
+      return;
+    }
+
     axios
       .get(`/api/search?q=${query}`)
       .then((response) => {
@@ -17,6 +25,7 @@ const SearchResults = () => {
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
+        setProducts(getMockSearchResults(query));
       });
   }, [query]);
 
