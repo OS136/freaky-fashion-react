@@ -8,7 +8,7 @@ export const mockProducts = [
     SKU: "FF-1001",
     url: "classic-denim-jacket",
     picture:
-      "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1706765779494-2705542ebe74?q=80&w=1951&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ export const mockProducts = [
     SKU: "FF-1004",
     url: "relaxed-chino-pants",
     picture:
-      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?q=80&w=2509&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 5,
@@ -63,7 +63,7 @@ export const mockProducts = [
     SKU: "FF-1006",
     url: "oversized-hoodie",
     picture:
-      "https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1685328403732-64be6bb9d112?q=80&w=2531&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 
