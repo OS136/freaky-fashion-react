@@ -6,21 +6,21 @@ const SimilarProducts = (prop) => {
   const { url, brand } = prop;
 
   useEffect(() => {
-    if (!url) return; 
+    if (!url) return;
 
     console.log("Fetching similar products for URL:", url);
     console.log("Fetching similar products for brand:", brand);
 
     axios
-      .get(`/api/products/similiar?exclude=${url}&includeBrand=${brand}`) 
+      .get(`/api/products/similiar?exclude=${url}&includeBrand=${brand}`)
       .then((response) => {
-        console.log("Similar products fetched:", response.data); 
-        setProducts(Array.isArray(response.data) ? response.data : []); 
+        console.log("Similar products fetched:", response.data);
+        setProducts(Array.isArray(response.data) ? response.data : []);
       })
       .catch((error) => {
-        console.error("Error fetching similar products:", error); 
+        console.error("Error fetching similar products:", error);
       });
-  }, [url, brand]); 
+  }, [url, brand]);
 
   return (
     <div className="p-4">

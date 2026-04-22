@@ -31,7 +31,6 @@ const AdminPage = () => {
   }, []);
 
   return (
-    
     <main className="flex flex-row">
       <AdminSidebar />
 
